@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import BossCard from './BossCard';
 import {app} from './firebase'
-import { getDatabase, ref, child, get, update,push} from "firebase/database";
+import { getDatabase, ref, child, get, update} from "firebase/database";
 
 function App() {
 
@@ -28,15 +28,6 @@ get(child(dbRef, `bosses`)).then((snapshot) => {
     }
   }
 
-  /* const defeatedBoss = (boss) => {
-    const bossUpdate = {
-      id: boss.id,
-      name:boss.name,
-      image:boss.image,
-      defeated:!boss.defeated
-    }
-    return(update(ref(`${dbRef}/bosses/${boss.id - 1}`),bossUpdate))
-  } */
 
   function updateBoss(boss) {
     const db = getDatabase();

@@ -1,10 +1,6 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
 const BossCard = ({boss,updateBoss}) => {
-
-    /* const changeBoss async () => {
-        
-    } */
 
     const defeated = boss.defeated === true ? 'defeatedBoss' : null
 
@@ -15,5 +11,14 @@ const BossCard = ({boss,updateBoss}) => {
     </div>
   )
 }
+
+BossCard.propTypes = {
+  boss: PropTypes.shape({
+    defeated: PropTypes.bool,
+    image: PropTypes.string,
+    name: PropTypes.string,
+  }).isRequired,
+  updateBoss: PropTypes.func.isRequired,
+};
 
 export default BossCard
